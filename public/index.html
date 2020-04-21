@@ -3,27 +3,46 @@
   <head>
     <!-- Meta Information -->
     <title>Tweeter - Home Page</title>
-
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
-
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
-
+    <!-- External Fonts-->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+Pro:wght@300;600&display=swap" rel="stylesheet">
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
   </head>
-
   <body>
     <!-- Top nav bar (fixed) -->
-    <nav>
+    <nav class="nav-container">
       <span>tweeter</span>
+      <section class="left-side-container">
+        <span><strong>Write</strong> a new tweet</span>
+        <span><img src="images/red_arrow.svg" alt="arrow" width="15" height="15"></span>
+      </section>
     </nav>
-
+    <header class="header-container">
+      <span>
+        <img src="/images/profile-hex.png"> 
+      </span>
+    <span>
+      <h2>Neihy Nocnir</h2>
+    </span>
+    </header>
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="main-container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <form>
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea name="text" id="tweet-text"></textarea>
+          <button type="submit">Tweet</button>
+          <output name="counter" class="counter" for="tweet-text">140</output>
+        </form>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>
