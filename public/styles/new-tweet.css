@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding: 10px;
+  padding-top: 10px;
 }
 
 .bottom {
@@ -22,10 +22,16 @@
   padding: 2px;
   padding-left: 8px;
   padding-right: 8px;
-  
-
 }
 
+.form-inline {
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  color:#8f8f8d;
+  font-weight: bold;
+
+}
 textarea {
   background: transparent;
   border: none;
@@ -33,6 +39,7 @@ textarea {
   color: #545149;
   outline: none;
   font-weight: bold;
+  font-size: 16px;
   margin-bottom: 0.5em;
   height: 45px;
   width: 500px;
