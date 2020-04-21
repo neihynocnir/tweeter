@@ -6,13 +6,14 @@ nav.nav-container {
   top: 0;
   left: 0;
   padding: 40px;
-  background: #394C94 ;
+  background: #394C94;
   z-index: 2;
   color:white;
   height: 120px;
   width: 100%;
   font-family: 'Bungee', cursive;
   font-size: 40px;
+  padding: 1.5em;
 }
 
 nav section.left-side-container {
