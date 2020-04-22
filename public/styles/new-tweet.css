@@ -16,6 +16,7 @@
   color: #545149;
   font-size: 20px;
 }
+
 .bottom button {
   background: #394C94;
   color:white;
@@ -30,8 +31,8 @@
   background: transparent;
   color:#8f8f8d;
   font-weight: bold;
-
 }
+
 textarea {
   background: transparent;
   border: none;
@@ -44,5 +45,4 @@ textarea {
   height: 45px;
   width: 500px;
 }
-
 
