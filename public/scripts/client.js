@@ -1,8 +1,25 @@
-/*
- * Client-side JS logic goes here
- * jQuery is already loaded
- * Reminder: Use (and do all your DOM work in) jQuery's document ready function
- */
+// Parsing timestamp to relative time
+const timeAgo = (created_at) => {
+  let msPerMinute = 60 * 1000;
+  let msPerHour = msPerMinute * 60;
+  let msPerDay = msPerHour * 24;
+  let msPerMonth = msPerDay * 30;
+  let msPerYear = msPerDay * 365;
+  let elapsed = Date.now() - created_at;
+  if (elapsed < msPerMinute) {
+    return Math.round(elapsed/1000) + ' seconds ago';   
+  } else if (elapsed < msPerHour) {
+    return Math.round(elapsed/msPerMinute) + ' minutes ago';   
+  } else if (elapsed < msPerDay ) {
+    return Math.round(elapsed/msPerHour ) + ' hours ago';   
+  } else if (elapsed < msPerMonth) {
+    return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
+  } else if (elapsed < msPerYear) {
+    return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+  } else {
+    return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
+  }
+}
 
 // Preventing XSS with Escaping
 const escape =  function(str) {
@@ -31,7 +48,7 @@ const createTweetElement = tweetObj => {
     </header>
       <span class="content">${escape(tweetObj.content.text)}</span>
     <footer>
-      <span class="date">${escape(tweetObj.created_at)}</span>
+      <span class="date">${escape(timeAgo(tweetObj.created_at))}</span>
       <div class="icon-options">
         <span><img src="./images/flag-icon.png"></span>
         <span><img src="./images/retweet-icon.png"></span>

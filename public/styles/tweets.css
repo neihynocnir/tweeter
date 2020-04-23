@@ -1,3 +1,11 @@
+#tweet-container {
+  display: flex;
+  flex-direction: column;
+  flex-flow: column-reverse;
+  width: 90%;
+
+}
+
 .tweet-article {
   border: 4px solid #545149;
   padding: .5em;
@@ -14,7 +22,6 @@
   justify-content: flex-start;
   align-items: center;
   font-weight: 300;
-  width: 300px;
 }
 
 .tweet-article:hover .left-side {
@@ -55,11 +62,11 @@
 
 .content {
   display: flex;
+  overflow-wrap: break-word;
   padding: 1.5em;
   padding-left: 1em;
   margin: 0em 0em;
   border-bottom: 4px solid #545149;
-  overflow-wrap: break-word;
   font-weight: 300;
 }
 
@@ -76,7 +83,7 @@
 
 .icon-options {
   float: right;
-  width: 130px;
+  width: 20%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -94,8 +101,4 @@
   font-size: 16px;
 }
 
-#tweet-container {
-  display: flex;
-  flex-direction: column;
-  flex-flow: column-reverse;
-}
+

@@ -4,7 +4,8 @@
   justify-content: center;
   align-items: center;
   align-content: center;
-  padding-top: 10px;
+  padding-top: .5em;
+  width: 90%;
 }
 
 .bottom {
@@ -31,6 +32,7 @@
   background: transparent;
   color:#8f8f8d;
   font-weight: bold;
+  width: 90%;
 }
 
 textarea {
@@ -43,7 +45,6 @@ textarea {
   font-size: 16px;
   margin-bottom: 0.5em;
   height: 45px;
-  width: 700px;
 }
 
 /* The alert message box */
@@ -53,7 +54,7 @@ textarea {
   justify-content: space-between;
   align-items: center;
   background-color: #FF0000;
-  color: white;
+  color: #FFFFFF;
   padding: 0.4em;
   margin-bottom: 1em;
   width: 100%;
@@ -61,14 +62,13 @@ textarea {
 
 /* The close button */
 .closebtn {
-  font-weight: bold;;
-  display: flex;
+  font-weight: bold;
   cursor: pointer;
 }
 
 /* When moving the mouse over the close button */
 .closebtn:hover {
-  color: black;
+  color: #000000;
 }
 
 
