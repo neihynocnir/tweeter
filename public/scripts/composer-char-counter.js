@@ -12,4 +12,8 @@ $(document).ready(function() {
       counter.text(totalCharacter).css('color', '#545149');;
     }
   });
+
+  $('.closebtn').on('click', function() {
+    $(this).parent().hide();
+  })
 }); 

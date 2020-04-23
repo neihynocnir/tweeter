@@ -46,3 +46,29 @@ textarea {
   width: 700px;
 }
 
+/* The alert message box */
+.alert {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #FF0000;
+  color: white;
+  padding: 0.4em;
+  margin-bottom: 1em;
+  width: 100%;
+}
+
+/* The close button */
+.closebtn {
+  font-weight: bold;;
+  display: flex;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the close button */
+.closebtn:hover {
+  color: black;
+}
+
+

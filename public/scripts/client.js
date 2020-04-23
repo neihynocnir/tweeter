@@ -4,6 +4,13 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+// Preventing XSS with Escaping
+const escape =  function(str) {
+  let div = document.createElement('div');
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+}
+
  // rendering tweets 
 const renderTweets = tweets => {
   $.each(tweets, (index, tweetObj) => {
@@ -17,14 +24,14 @@ const createTweetElement = tweetObj => {
   <article class="tweet-article">
     <header>
       <div class="left-side">
-        <span><img src=${tweetObj.user.avatars}></span>
-        <span>${tweetObj.user.name}</span>
+        <span><img src=${escape(tweetObj.user.avatars)}></span>
+        <span>${escape(tweetObj.user.name)}</span>
       </div>
-      <span class="handle">${tweetObj.user.handle}</span>
+      <span class="handle">${escape(tweetObj.user.handle)}</span>
     </header>
-      <span class="content">${tweetObj.content.text}</span>
+      <span class="content">${escape(tweetObj.content.text)}</span>
     <footer>
-      <span class="date">${tweetObj.created_at}</span>
+      <span class="date">${escape(tweetObj.created_at)}</span>
       <div class="icon-options">
         <span><img src="./images/flag-icon.png"></span>
         <span><img src="./images/retweet-icon.png"></span>
@@ -53,10 +60,12 @@ const loadTweets = () => {
 // add a new tweet
 const submitHandler = (text) => {
   if (!text) {
-    alert('Content is empty!');
+    $('.alert').slideDown();
+    $('.alert strong').text('Message is empty!');
     return;
   } else if (text.length > 140) {
-    alert('Too long!!')
+    $('.alert').slideDown();
+    $('.alert strong').text('Message is too long!');
     return;
   } else {
     $.ajax({
@@ -78,7 +87,9 @@ const submitHandler = (text) => {
 
 // control ;)
 $(document).ready(function() {
+  $('.alert').hide();
   loadTweets('/tweets', 'GET', renderTweets);
+  
 
   $('form').submit(function(event) {
     event.preventDefault();
