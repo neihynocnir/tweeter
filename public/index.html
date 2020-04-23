@@ -24,7 +24,7 @@
       <span>tweeter</span>
       <section class="left-side-container">
         <span><strong>Write</strong> a new tweet</span>
-        <span><img src="images/red_arrow.svg" alt="arrow" width="15" height="15"></span>
+        <span><img src="images/red_arrow.svg"></span>
       </section>
     </nav>
     <header class="header-container">
@@ -38,7 +38,7 @@
     <!-- Page-specific (main) content here -->
     <main class="main-container">
       <section class="new-tweet">
-        <form class="form-inline" action="/tweets/" method="POST">
+        <form class="form-inline" action="/tweets" method="POST">
           <label for="tweet-text">What are you humming about?</label>
           <textarea name="text" id="tweet-text"></textarea>
           <section class="bottom">
@@ -48,25 +48,8 @@
         </form>
       </section>
       <section id="tweet-container">
-      <article class="tweet-article">
-        <header>
-          <div class="left-side">
-            <span><img src="https://i.imgur.com/nlhLi3I.png"></span>
-            <span>user_name</span>
-          </div>
-          <span class="handle">@user_handle</span>
-        </header>
-        <span class="content">tweet content</span>
-        <footer>
-          <span class="date">created_at</span>
-          <div class="icon-options">
-            <span><img src="./images/flag-icon.png"></span>
-            <span><img src="./images/retweet-icon.png"></span>
-            <span><img src="./images/like-icon.png"></span>
-          </div>
-        </footer>
-      </article>
-    </section>
-  </main>
-</body>
+        <!-- article of tweets -->
+      </section>
+    </main>
+  </body>
 </html>

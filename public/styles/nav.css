@@ -24,6 +24,13 @@ nav section.left-side-container {
   font-size: 24px;
 }
 
+nav section.left-side-container img {
+  alt:'arrow';
+  width:15px; 
+  height:15px;
+
+}
+
 header.header-container {
   display: flex;
   flex-direction: column;

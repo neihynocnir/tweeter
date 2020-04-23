@@ -7,9 +7,9 @@ $(document).ready(function() {
     const totalCharacter = maxCharacter - txtAreaLength;
     const counter = $(this).closest('form').find('.counter');
     if (totalCharacter < 0){
-      counter.text(totalCharacter).css("color", "#FF0000");
+      counter.text(totalCharacter).css('color', '#FF0000');
     } else {
-      counter.text(totalCharacter).css("color", "#545149");;
+      counter.text(totalCharacter).css('color', '#545149');;
     }
   });
 }); 
