@@ -7,8 +7,8 @@ Tweeter is a simple, single-page Twitter clone where we are able to practice tho
 
 ## Final Product
 
-!["Small Screens"](https://github.com/neihynocnir/tiny-app/blob/master/docs/miniTweeter.png)
-!["Big Screens"](https://github.com/neihynocnir/tiny-app/blob/master/docs/tweeter.png)
+!["Small Screens"](https://github.com/neihynocnir/tweeter/blob/master/docs/miniTweeter.png)
+!["Big Screens"](https://github.com/neihynocnir/tweeter/blob/master/docs/tweeter.png)
 
 ## Dependencies
 
