@@ -8,6 +8,7 @@
   width: 90%;
 }
 
+
 .bottom {
   display: flex;
   flex-direction: row;
@@ -47,7 +48,6 @@ textarea {
   height: 45px;
 }
 
-/* The alert message box */
 .alert {
   display: flex;
   flex-direction: row;
@@ -60,13 +60,11 @@ textarea {
   width: 100%;
 }
 
-/* The close button */
 .closebtn {
   font-weight: bold;
   cursor: pointer;
 }
 
-/* When moving the mouse over the close button */
 .closebtn:hover {
   color: #000000;
 }

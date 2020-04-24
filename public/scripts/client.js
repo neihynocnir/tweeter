@@ -1,34 +1,34 @@
 // Parsing timestamp to relative time
-const timeAgo = (created_at) => {
+const timeAgo = (createdAt) => {
   let msPerMinute = 60 * 1000;
   let msPerHour = msPerMinute * 60;
   let msPerDay = msPerHour * 24;
   let msPerMonth = msPerDay * 30;
   let msPerYear = msPerDay * 365;
-  let elapsed = Date.now() - created_at;
+  let elapsed = Date.now() - createdAt;
   if (elapsed < msPerMinute) {
-    return Math.round(elapsed/1000) + ' seconds ago';   
+    return Math.round(elapsed / 1000) + ' seconds ago';
   } else if (elapsed < msPerHour) {
-    return Math.round(elapsed/msPerMinute) + ' minutes ago';   
-  } else if (elapsed < msPerDay ) {
-    return Math.round(elapsed/msPerHour ) + ' hours ago';   
+    return Math.round(elapsed / msPerMinute) + ' minutes ago';
+  } else if (elapsed < msPerDay) {
+    return Math.round(elapsed / msPerHour) + ' hours ago';
   } else if (elapsed < msPerMonth) {
-    return 'approximately ' + Math.round(elapsed/msPerDay) + ' days ago';   
+    return 'approximately ' + Math.round(elapsed / msPerDay) + ' days ago';
   } else if (elapsed < msPerYear) {
-    return 'approximately ' + Math.round(elapsed/msPerMonth) + ' months ago';
+    return 'approximately ' + Math.round(elapsed / msPerMonth) + ' months ago';
   } else {
-    return 'approximately ' + Math.round(elapsed/msPerYear ) + ' years ago';   
+    return 'approximately ' + Math.round(elapsed / msPerYear) + ' years ago';
   }
-}
+};
 
 // Preventing XSS with Escaping
 const escape =  function(str) {
   let div = document.createElement('div');
   div.appendChild(document.createTextNode(str));
   return div.innerHTML;
-}
+};
 
- // rendering tweets 
+// Rendering tweets
 const renderTweets = tweets => {
   $('#tweet-container').empty();
   $.each(tweets, (index, tweetObj) => {
@@ -58,7 +58,7 @@ const createTweetElement = tweetObj => {
     </footer>
   </article>`;
   return tweet;
-}
+};
 
 // Get the list of tweets
 const loadTweets = () => {
@@ -66,23 +66,21 @@ const loadTweets = () => {
     url: '/tweets',
     type: 'GET',
     dataType: 'JSON',
-  })
-  .then((response) => { 
+  }).then((response) => {
     renderTweets(response);
-  })
-  .catch(() => {
+  }).catch(() => {
     console.log('Error');
-  })
+  });
 };
 
-// add a new tweet
+// Add a new tweet
 const submitHandler = (text) => {
   if (!text) {
-    $('.alert').slideDown();
+    $('.alert').slideDown('slow');
     $('.alert strong').text('Message is empty!');
     return;
   } else if (text.length > 140) {
-    $('.alert').slideDown();
+    $('.alert').slideDown('slow');
     $('.alert strong').text('Message is too long!');
     return;
   } else {
@@ -90,26 +88,36 @@ const submitHandler = (text) => {
       url: '/tweets',
       type: 'POST',
       data: {text}
-    })
-    .then(() => {
+    }).then(() => {
       console.log('Succesfully sent');
       $('textarea').val('');
       $('.counter').text(140);
       loadTweets();
-    })
-    .catch(() => {
-      console.log('Error');
-    })
+    }).catch(() => {
+      console.log('Error when trying to submit the tweet');
+    });
   }
 };
 
 // control ;)
 $(document).ready(function() {
   $('.alert').hide();
+  $('.new-tweet').hide();
   loadTweets('/tweets', 'GET', renderTweets);
-
+  
+  //submit the form
   $('form').submit(function(event) {
     event.preventDefault();
     submitHandler($('textarea').val());
+  });
+  
+  // hiding the alert when showing up
+  $('.closebtn').on('click', function() {
+    $(this).parent().slideUp('slow');
+  });
+  
+  //showing compose tweeter
+  $('.left-side-container img').on('click', function() {
+    ($('.new-tweet').is(':hidden')) ? $('.new-tweet').slideDown('slow') : $('.new-tweet').slideUp('slow');
   });
 });
