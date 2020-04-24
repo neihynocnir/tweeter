@@ -30,6 +30,7 @@ const escape =  function(str) {
 
  // rendering tweets 
 const renderTweets = tweets => {
+  $('#tweet-container').empty();
   $.each(tweets, (index, tweetObj) => {
     $('#tweet-container').append(createTweetElement(tweetObj));
   });
@@ -88,12 +89,12 @@ const submitHandler = (text) => {
     $.ajax({
       url: '/tweets',
       type: 'POST',
-      data: {
-        text 
-      }
+      data: {text}
     })
     .then(() => {
       console.log('Succesfully sent');
+      $('textarea').val('');
+      $('.counter').text(140);
       loadTweets();
     })
     .catch(() => {
@@ -106,7 +107,6 @@ const submitHandler = (text) => {
 $(document).ready(function() {
   $('.alert').hide();
   loadTweets('/tweets', 'GET', renderTweets);
-  
 
   $('form').submit(function(event) {
     event.preventDefault();

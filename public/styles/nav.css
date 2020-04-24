@@ -5,14 +5,13 @@ nav.nav-container {
   position: fixed;
   top: 0;
   left: 0;
-  padding: 40px;
   background: #394C94;
   z-index: 2;
   color:white;
   height: 120px;
   width: 100%;
   font-family: 'Bungee', cursive;
-  font-size: 40px;
+  font-size: 2.2rem;
   padding: 1.5em;
 }
 
@@ -21,14 +20,13 @@ nav section.left-side-container {
   flex-direction: column;
   align-items: center;
   font-family: 'Source Sans Pro', sans-serif;
-  font-size: 24px;
+  font-size: 1.3rem;
 }
 
 nav section.left-side-container img {
   alt:'arrow';
-  width:15px; 
-  height:15px;
-
+  width:0.8em; 
+  height:0.8em;
 }
 
 header.header-container {
@@ -50,3 +48,34 @@ main.main-container {
   padding: 10px;
   width: 90%;
 }
+
+
+@media only screen and (max-width: 600px) {
+  nav section.left-side-container {
+    font-size: 70%;
+  }
+
+  nav.nav-container {
+    background:  #D19034;
+    font-size: 100%;
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+
+  body {
+    display: flex;
+  }
+
+  .header-container {
+    margin: 1em 1em 1em 2em;
+    padding-top: 1em;
+    border-radius: 5%;
+  }
+
+  main {
+    width: 50%;
+    margin-right: 2em;
+  }
+}
+
